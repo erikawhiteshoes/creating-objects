@@ -24,3 +24,12 @@ protoObject.prototype.toString = function() {
 
 var obj2 = new protoObject();
 console.log(obj2.toString());
+
+var moduleObject = {
+  toString: function() {
+    return "module!";
+  },
+};
+
+var obj3 = moduleObject;
+console.log(obj3.toString());
