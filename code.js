@@ -1,3 +1,17 @@
+(function() {
+  var id = 0;
+
+  var generateId = function() { 
+    return (id = id + 1);
+  };
+
+  Object.prototype.id = function() {
+    var newId = generateId();
+
+    this.id = function() { return newID;  };
+    return newId;
+  };
+
 var factoryObject = function() {
   var toString = function() {
     return "factory!";
@@ -9,12 +23,11 @@ var factoryObject = function() {
 };
 
 var obj1 = factoryObject();
-console.log(obj1.toString());
+console.log(obj1.id());
+var obj1a = factoryObject();
+console.log(obj1a.id());
 
-var obj3 = factoryObject();
-console.log(obj3.toString());
-
-var protoObject = function(){
+var protoObject = function() {
   return this;
 };
 
@@ -33,3 +46,4 @@ var moduleObject = {
 
 var obj3 = moduleObject;
 console.log(obj3.toString());
+})();
